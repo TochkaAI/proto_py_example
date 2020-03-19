@@ -2,10 +2,10 @@ from datetime import datetime
 
 import time
 
-from pyproto import Message
-from pyproto import BaseCommand
-from pyproto.connection import Connection
-from pyproto.flags import ExecStatus
+from proto_py import Message
+from proto_py import BaseCommand
+from proto_py.connection import Connection
+from proto_py.flags import ExecStatus
 from userCommands import (
     PING_COMMAND,
     WHAT_IS_TIME

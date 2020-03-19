@@ -1,6 +1,6 @@
 import sys
 
-from pyproto import REGISTRY_COMMAND
+from proto_py import REGISTRY_COMMAND
 
 PingCommand = "PING_COMMAND"
 WhatIsTime = "WHAT_IS_TIME"

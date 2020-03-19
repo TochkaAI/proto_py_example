@@ -1,11 +1,11 @@
-"""Файл реализации функционала сервера pyproto"""
+"""Файл реализации функционала сервера protopy"""
 from threading import Thread
 import time
 
 # Импорт описания и реализации пользовательских команд
 import userCommandsImpl, userCommands
-# Импорт основной сущности работы с pyproto для сервера
-from pyproto import TcpServer
+# Импорт основной сущности работы с protopy для сервера
+from proto_py import TcpServer
 
 # Работа с логирование. В данном случае логгер настроен на отображение информации в консоли
 import logger
