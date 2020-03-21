@@ -1,14 +1,13 @@
 from datetime import datetime
 
-import time
-
 from proto_py import Message
 from proto_py import BaseCommand
 from proto_py.connection import Connection
 from proto_py.flags import ExecStatus
 from userCommands import (
     PING_COMMAND,
-    WHAT_IS_TIME
+    WHAT_IS_TIME,
+    SEND_ME_FAIL
 )
 
 
@@ -55,4 +54,19 @@ class WhatIsTime(BaseCommand):
     def handler(msg: Message):
         ans = msg.get_answer_copy()
         ans.set_content({"time_str": datetime.now().strftime("%H:%M:%S")})
+        ans.send_answer()
+
+
+class SendMeFail(BaseCommand):
+    COMMAND_UUID = SEND_ME_FAIL.uuid
+
+    @staticmethod
+    def initial(connection):
+        msg = connection.create_command(SendMeFail)
+        return msg
+
+    @staticmethod
+    def handler(msg: Message):
+        ans = msg.get_answer_copy()
+        ans.set_status(ExecStatus.Failed)
         ans.send_answer()

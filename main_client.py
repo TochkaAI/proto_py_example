@@ -4,6 +4,7 @@
 import userCommandsImpl, userCommands
 # Импорт основной сущности работы с protopy для клиента
 from proto_py import TcpSocket
+from proto_py.badSituations import MessageStatusFailed
 
 # Работа с логирование. В данном случае логгер настроен на отображение информации в консоли
 import logger
@@ -35,6 +36,9 @@ if __name__ == '__main__':
                 # которая была получена с удалённого сервера
                 time_str = tcp_worker.get_current_connection().WHAT_IS_TIME_sync()
                 print(time_str)
+            elif value == 'fail':
+                tcp_worker.get_current_connection().SEND_ME_FAIL_sync()
+
             else:
                 print('Unkwon command, pls reenter')
     finally:
