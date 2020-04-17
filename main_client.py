@@ -13,7 +13,7 @@ import logger
 if __name__ == '__main__':
     # Этот клиент будет подключаться к серверу с данными параметрами
     ip_to_connect = '127.0.0.1'
-    port_to_connect = 38015
+    port_to_connect = 38019
 
     # Создаём объект сущности TcpSocket для дальнейшего подключения к серверу и обмена командами
     tcp_worker = TcpSocket(ip_to_connect, port_to_connect, userCommands, userCommandsImpl)
@@ -30,12 +30,14 @@ if __name__ == '__main__':
             value = input("INPUT: ")
             if value == 'exit':
                 break
-            if value == 't':
+            elif value == 't':
                 # Команда WHAT_IS_TIME выполняет синхронно,
                 # результатом выполнения команды, является строка с текущим временем,
                 # которая была получена с удалённого сервера
                 time_str = tcp_worker.get_current_connection().WHAT_IS_TIME_sync()
                 print(time_str)
+            elif value == 'e':
+                tcp_worker.get_current_connection().EVENT_MESSAGE_async()
             elif value == 'fail':
                 tcp_worker.get_current_connection().SEND_ME_FAIL_sync()
 

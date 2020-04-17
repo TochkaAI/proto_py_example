@@ -14,7 +14,7 @@ import logger
 if __name__ == '__main__':
     # Этот сервер будет слушать на таком ip и на таком порту
     listen_ip = '127.0.0.1'
-    listen_port = 38015
+    listen_port = 38019
 
     # Создаём объект сущности TcpServer для дальнейшего прослушивания и созданию входящих подключений
     listening_worker = TcpServer(listen_ip, listen_port, userCommands, userCommandsImpl)

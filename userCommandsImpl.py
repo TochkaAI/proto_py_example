@@ -3,11 +3,14 @@ from datetime import datetime
 from proto_py import Message
 from proto_py import BaseCommand
 from proto_py.connection import Connection
-from proto_py.flags import ExecStatus
+from proto_py.flags import ExecStatus, Type
+
+from logger import logger
 from userCommands import (
     PING_COMMAND,
     WHAT_IS_TIME,
-    SEND_ME_FAIL
+    SEND_ME_FAIL,
+    EVENT_MESSAGE
 )
 
 
@@ -70,3 +73,19 @@ class SendMeFail(BaseCommand):
         ans = msg.get_answer_copy()
         ans.set_status(ExecStatus.Failed)
         ans.send_answer()
+
+
+class EventMessage(BaseCommand):
+    COMMAND_UUID = EVENT_MESSAGE.uuid
+
+    @staticmethod
+    def initial(connection):
+        msg = connection.create_event(EventMessage)
+        return msg
+
+    @staticmethod
+    def handler(msg: Message):
+        if msg.get_type() == Type.Event:
+            logger.info("it's Event type Message")
+        else:
+            logger.info("It's not event")
