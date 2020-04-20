@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from proto_py import Message
-from proto_py import BaseCommand
-from proto_py.connection import Connection
-from proto_py.flags import ExecStatus, Type
+from pproto_py import Message
+from pproto_py import BaseCommand
+from pproto_py.connection import Connection
+from pproto_py.flags import ExecStatus, Type
 
 from logger import logger
 from userCommands import (

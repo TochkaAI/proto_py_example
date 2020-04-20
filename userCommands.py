@@ -1,4 +1,4 @@
-from proto_py import REGISTRY_COMMAND
+from pproto_py import REGISTRY_COMMAND
 
 PingCommand = "PING_COMMAND"
 WhatIsTime = "WHAT_IS_TIME"

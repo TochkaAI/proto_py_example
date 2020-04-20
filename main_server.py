@@ -5,7 +5,7 @@ import time
 # Импорт описания и реализации пользовательских команд
 import userCommandsImpl, userCommands
 # Импорт основной сущности работы с protopy для сервера
-from proto_py import TcpServer
+from pproto_py import TcpServer
 
 # Работа с логирование. В данном случае логгер настроен на отображение информации в консоли
 import logger

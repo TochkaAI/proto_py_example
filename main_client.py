@@ -3,8 +3,8 @@
 # Импорт описания и реализации пользовательских команд
 import userCommandsImpl, userCommands
 # Импорт основной сущности работы с protopy для клиента
-from proto_py import TcpSocket
-from proto_py.badSituations import MessageStatusFailed
+from pproto_py import TcpSocket
+from pproto_py.badSituations import MessageStatusFailed
 
 # Работа с логирование. В данном случае логгер настроен на отображение информации в консоли
 import logger
