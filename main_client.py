@@ -4,7 +4,6 @@
 import userCommandsImpl, userCommands
 # Импорт основной сущности работы с protopy для клиента
 from pproto_py import TcpSocket
-from pproto_py.badSituations import MessageStatusFailed
 
 # Работа с логирование. В данном случае логгер настроен на отображение информации в консоли
 import logger
